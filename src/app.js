@@ -1,3 +1,19 @@
+function formatDate(timestamp) {
+  let date = new Date(timestamp);
+  let hours = date.getHours();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+  let minutes = date.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  let day = days[date.getDay()];
+
+  return `${day} ${hours}:${minutes}`;
+}
+
 function displayTemperature(response) {
   let cityElement = document.querySelector("#current-city");
   let countryElement = document.querySelector("#current-country");
@@ -5,14 +21,15 @@ function displayTemperature(response) {
   let descriptionElement = document.querySelector("#current-description");
   let humidityElement = document.querySelector("#humidity-content");
   let windElement = document.querySelector("#wind-content");
+  let dateElement = document.querySelector("#current-time");
+
   cityElement.innerHTML = response.data.name;
   countryElement.innerHTML = response.data.sys.country;
   temperatureElement.innerHTML = Math.round(response.data.main.temp);
   descriptionElement.innerHTML = response.data.weather[0].description;
   humidityElement.innerHTML = response.data.main.humidity + "%";
   windElement.innerHTML = Math.round(response.data.wind.speed) + " m/s";
-
-  console.log(response.data);
+  dateElement.innerHTML = formatDate(response.data.dt * 1000);
 }
 
 let apiKey = "f86609e405cc74813bc6bd5906b03dac";
