@@ -14,7 +14,7 @@ function formatDate(timestamp) {
   return `${day} ${hours}:${minutes}`;
 }
 
-function displayTemperature(response) {
+function displayAppContent(response) {
   let cityElement = document.querySelector("#current-city");
   let countryElement = document.querySelector("#current-country");
   let temperatureElement = document.querySelector("#current-temp");
@@ -23,6 +23,7 @@ function displayTemperature(response) {
   let windElement = document.querySelector("#wind-content");
   let dateElement = document.querySelector("#current-time");
   let iconElement = document.querySelector("#icon");
+  let feelsLikeElement = document.querySelector("#feels-like-temp");
 
   cityElement.innerHTML = response.data.name;
   countryElement.innerHTML = response.data.sys.country;
@@ -36,12 +37,13 @@ function displayTemperature(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
+  feelsLikeElement.innerHTML = Math.round(response.data.main.feels_like) + "°";
 }
 
 function search(city) {
   let apiKey = "f86609e405cc74813bc6bd5906b03dac";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-  axios.get(apiUrl).then(displayTemperature);
+  axios.get(apiUrl).then(displayAppContent);
 }
 
 function handleSubmit(event) {
