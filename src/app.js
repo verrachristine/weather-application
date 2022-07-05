@@ -93,6 +93,33 @@ function displayAppContent(response) {
   feelsLikeElement.innerHTML = Math.round(response.data.main.feels_like) + "°";
 
   getForecast(response.data.coord);
+  backgroundChange(response.data.weather[0].icon);
+}
+
+function backgroundChange(icon) {
+  if (icon === "01d" || icon === "02d") {
+    document.body.style.backgroundImage = "url(src/sky-background.jpeg)";
+  } else if (icon === "02n" || icon === "03n" || icon === "04n") {
+    document.body.style.backgroundImage = "url(src/night-clouds-bg.jpg)";
+  } else if (icon === "04d" || icon === "03d") {
+    document.body.style.backgroundImage = "url(src/day-clouds-bg.jpg)";
+  } else if (icon === "01n") {
+    document.body.style.backgroundImage = "url(src/clear-night-bg.jpg)";
+  } else if (icon === "09n" || icon === "09d") {
+    document.body.style.backgroundImage = "url(src/shower-rain-bg.jpg)";
+  } else if (icon === "11d" || icon === "11n") {
+    document.body.style.backgroundImage = "url(src/thunderstorm-bg.jpg)";
+  } else if (icon === "10n" || icon === "10d") {
+    document.body.style.backgroundImage = "url(src/rain-bg.jpg)";
+  } else if (icon === "50d") {
+    document.body.style.backgroundImage = "url(src/day-mist-bg.jpg)";
+  } else if (icon === "50n") {
+    document.body.style.backgroundImage = "url(src/night-mist-bg.jpg)";
+  } else if (icon === "13d" || icon === "13n") {
+    document.body.style.backgroundImage = "url(src/snow-bg.jpg)";
+  } else {
+    document.body.style.backgroundImage = "url(src/sky-background.jpeg)";
+  }
 }
 
 function search(city) {
