@@ -29,6 +29,7 @@ body {
 }
 
 .last-update-statement {
+  font-family: sans-serif;
   position: relative;
   left: -175px;
   color: rgba(255, 255, 255, 0.313);
@@ -36,11 +37,13 @@ body {
 }
 
 .location {
+  font-family: "Poppins", sans-serif;
   color: whitesmoke;
   margin-top: 25px;
 }
 
 .more-details-boxes {
+  font-family: "Nunito Sans", sans-serif;
   width: 120px;
   color: whitesmoke;
   background-color: none;
@@ -51,6 +54,7 @@ body {
 }
 
 .temp-content {
+  font-family: "Public Sans", sans-serif;
   font-weight: 600;
   color: whitesmoke;
 }
@@ -61,6 +65,7 @@ body {
 }
 
 .temp-unit {
+  color: rgba(229, 229, 229, 0.737);
   font-size: 18px;
   position: relative;
   top: -25px;
@@ -75,6 +80,7 @@ body {
 }
 
 .weather-forecast {
+  font-family: "Public Sans", sans-serif;
   font-weight: 400;
   margin-top: 10px;
   color: white;
@@ -123,6 +129,7 @@ body {
 }
 
 #current-description {
+  font-family: "Nunito Sans", sans-serif;
   color: rgba(229, 229, 229, 0.737);
   position: relative;
   top: -10px;
